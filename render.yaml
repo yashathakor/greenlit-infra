@@ -1,0 +1,391 @@
+# Exported from Render on 2025-04-03T22:07:06Z
+# greenlit-web-dev
+
+services:
+- type: web
+  name: greenlit-web-dev
+  runtime: node
+  repo: https://github.com/Greenlit-Labs/greenlitweb
+  plan: starter
+  envVars:
+  - key: PORT
+    sync: false
+  - key: NODE_ENV
+    sync: false
+  - key: BUN_VERSION
+    sync: false
+  - key: NEXT_PUBLIC_BASE_URL
+    sync: false
+  - key: AWS_SECRET_ACCESS_KEY
+    sync: false
+  - key: TMDB_API_KEY
+    sync: false
+  - key: SLACK_SIGNING_SECRET
+    sync: false
+  - key: GREENLITAPI_JWT_ACCESS_SECRET_KEY
+    sync: false
+  - key: DOCUSEAL_API_KEY
+    sync: false
+  - key: NEXT_PUBLIC_ROLLBAR_ACCESS_TOKEN
+    sync: false
+  - key: NEXT_PUBLIC_POSTHOG_KEY
+    sync: false
+  - key: NEXT_PUBLIC_APP_ENV
+    sync: false
+  - key: EMAILOCTOPUS_WHITELIST_TAGS
+    sync: false
+  - key: EMAILOCTOPUS_WEBHOOK_SECRET
+    sync: false
+  - key: DOCUSEAL_ADMIN_EMAIL
+    sync: false
+  - key: AWS_BUCKET_CONTRACT_TEMPLATES
+    sync: false
+  - key: AWS_BUCKET
+    sync: false
+  - key: AWS_ACCESS_KEY_ID
+    sync: false
+  - key: NEXTAUTH_URL
+    sync: false
+  - key: NEXTAUTH_SECRET
+    sync: false
+  - key: NEXT_PUBLIC_POSTHOG_HOST
+    sync: false
+  - key: NEXT_PUBLIC_POSTHOG_DEV_KEY
+    sync: false
+  - key: NEXT_PUBLIC_API_URL
+    sync: false
+  - key: NEXT_CHATWOOT_WEBSITE_TOKEN
+    sync: false
+  - key: NEXT_CHATWOOT_TEST_WEBSITE_TOKEN
+    sync: false
+  - key: NEXT_CHATWOOT_BASE_URL
+    sync: false
+  - key: CHATWOOT_HMAC_TOKEN
+    sync: false
+  - key: AWS_REGION
+    sync: false
+  region: ohio
+  buildCommand: bun install; bun run build
+  startCommand: bun start
+  domains:
+  - appdev.getgreenlit.xyz
+  previews:
+    generation: manual
+version: "1"
+
+# Exported from Render on 2025-04-03T22:20:58Z
+# greenlit-api-dev
+
+- type: pserv
+  name: greenlit-api-dev
+  runtime: python
+  repo: https://github.com/Greenlit-Labs/greenlitapi
+  plan: starter
+  envVars:
+  - key: GREENLITAPI_DB_USER
+    sync: false
+  - key: GREENLITAPI_DB_PASS
+    sync: false
+  - key: GREENLITAPI_DB_HOST
+    sync: false
+  - key: GREENLITAPI_DB_BASE
+    sync: false
+  - key: GREENLITAPI_HOST
+    sync: false
+  - key: GREENLITAPI_DB_PORT
+    sync: false
+  - key: GREENLITAPI_DEMO_ORGANIZATION_ID
+    sync: false
+  - key: GREENLITAPI_AWS_SECRET_ACCESS_KEY
+    sync: false
+  - key: GREENLITAPI_STRIPE_REPORT_PRICE_ID
+    sync: false
+  - key: GREENLITAPI_TYPEFORM_ONBOARDING_SEND_EMAIL
+    sync: false
+  - key: GREENLITAPI_STRIPE_SIGNING_SECRET_KEY
+    sync: false
+  - key: GREENLITAPI_TRIAL_TIER_ID
+    sync: false
+  - key: GREENLITAPI_SLACK_CHANNEL_ID
+    sync: false
+  - key: GREENLITAPI_SLACK_BOT_TOKEN
+    sync: false
+  - key: GREENLITAPI_STRIPE_API_KEY
+    sync: false
+  - key: GREENLITAPI_TRIAL_STRIPE_SUBSCRIPTION_ID
+    sync: false
+  - key: PYTHON_VERSION
+    sync: false
+  - key: POETRY_VERSION
+    sync: false
+  - key: GREENLITAPI_SCREENPLAY_IQ_USER_ID
+    sync: false
+  - key: GREENLITAPI_SCREENPLAY_IQ_FALLBACK_TIME_MINUTES
+    sync: false
+  - key: GREENLITAPI_SCREENPLAY_IQ_DEFAULT_ANALYSES
+    sync: false
+  - key: GREENLITAPI_SCREENPLAY_IQ_BASE_URL
+    sync: false
+  - key: GREENLITAPI_SCREENPLAY_IQ_API_KEY
+    sync: false
+  - key: GREENLITAPI_ROLLBAR_ACCESS_TOKEN
+    sync: false
+  - key: GREENLITAPI_POSTHOG_PROJECT_ID
+    sync: false
+  - key: GREENLITAPI_POSTHOG_PERSONAL_API_KEY
+    sync: false
+  - key: GREENLITAPI_POSTHOG_HOST
+    sync: false
+  - key: GREENLITAPI_POSTHOG_API_KEY
+    sync: false
+  - key: GREENLITAPI_PORT
+    sync: false
+  - key: GREENLITAPI_LOG_GROUP
+    sync: false
+  - key: GREENLITAPI_JWT_REFRESH_TOKEN_EXPIRE_MINUTES
+    sync: false
+  - key: GREENLITAPI_JWT_REFRESH_SECRET_KEY
+    sync: false
+  - key: GREENLITAPI_JWT_MAGIC_SECRET_KEY
+    sync: false
+  - key: GREENLITAPI_JWT_MAGIC_EXPIRE_MINUTES
+    sync: false
+  - key: GREENLITAPI_JWT_ACCESS_TOKEN_EXPIRE_MINUTES
+    sync: false
+  - key: GREENLITAPI_JWT_ACCESS_SECRET_KEY
+    sync: false
+  - key: GREENLITAPI_ENVIRONMENT
+    sync: false
+  - key: GREENLITAPI_AWS_REGION_NAME
+    sync: false
+  - key: GREENLITAPI_AWS_BUCKET_NAME
+    sync: false
+  - key: GREENLITAPI_AWS_ACCESS_KEY_ID
+    sync: false
+  - key: GREENLITAPI_APP_URL
+    sync: false
+  - key: GREELITAPI_LOG_LEVEL
+    sync: false
+  region: ohio
+  buildCommand: poetry install; poetry run alembic upgrade head
+  startCommand: poetry run python -m greenlitapi
+version: "1"
+
+# Exported from Render on 2025-04-03T22:23:32Z
+# greenlit-web-prod
+
+- type: web
+  name: greenlit-web-prod
+  runtime: node
+  repo: https://github.com/Greenlit-Labs/greenlitweb
+  plan: standard
+  envVars:
+  - key: TMDB_API_KEY
+    sync: false
+  - key: SLACK_SIGNING_SECRET
+    sync: false
+  - key: SLACK_FEEDBACK_WEBHOOK_URL
+    sync: false
+  - key: PORT
+    sync: false
+  - key: NODE_ENV
+    sync: false
+  - key: NEXTAUTH_URL
+    sync: false
+  - key: NEXTAUTH_SECRET
+    sync: false
+  - key: NEXT_PUBLIC_ROLLBAR_ACCESS_TOKEN
+    sync: false
+  - key: NEXT_PUBLIC_POSTHOG_KEY
+    sync: false
+  - key: NEXT_PUBLIC_POSTHOG_HOST
+    sync: false
+  - key: NEXT_PUBLIC_INTERCOM_APP_ID
+    sync: false
+  - key: NEXT_PUBLIC_BASE_URL
+    sync: false
+  - key: NEXT_PUBLIC_APP_ENV
+    sync: false
+  - key: NEXT_PUBLIC_API_URL
+    sync: false
+  - key: NEXT_CHATWOOT_WEBSITE_TOKEN
+    sync: false
+  - key: NEXT_CHATWOOT_TEST_WEBSITE_TOKEN
+    sync: false
+  - key: NEXT_CHATWOOT_BASE_URL
+    sync: false
+  - key: EMAILOCTOPUS_WHITELIST_TAGS
+    sync: false
+  - key: EMAILOCTOPUS_WEBHOOK_SECRET
+    sync: false
+  - key: DOCUSEAL_ADMIN_EMAIL
+    sync: false
+  - key: BUN_VERSION
+    sync: false
+  - key: AWS_SECRET_ACCESS_KEY
+    sync: false
+  - key: AWS_REGION
+    sync: false
+  - key: AWS_BUCKET_CONTRACT_TEMPLATES
+    sync: false
+  - key: DOCUSEAL_API_KEY
+    sync: false
+  - key: AWS_ACCESS_KEY_ID
+    sync: false
+  - key: GREENLITAPI_JWT_ACCESS_SECRET_KEY
+    sync: false
+  - key: CHATWOOT_HMAC_TOKEN
+    sync: false
+  - key: AWS_BUCKET
+    sync: false
+  region: ohio
+  buildCommand: bun install; bun run build
+  startCommand: bun start
+  domains:
+  - app.getgreenlit.xyz
+  autoDeploy: false
+version: "1"
+
+# Exported from Render on 2025-04-03T22:24:00Z
+# greenlit-api-prod
+- type: pserv
+  name: greenlit-api-prod
+  runtime: python
+  repo: https://github.com/Greenlit-Labs/greenlitapi
+  plan: standard
+  envVars:
+  - key: PYTHON_VERSION
+    sync: false
+  - key: POETRY_VERSION
+    sync: false
+  - key: GREENLITAPI_APP_URL
+    sync: false
+  - key: GREENLITAPI_DEMO_ORGANIZATION_ID
+    sync: false
+  - key: GREELITAPI_LOG_LEVEL
+    sync: false
+  - key: GREENLITAPI_AWS_SECRET_ACCESS_KEY
+    sync: false
+  - key: GREENLITAPI_DB_PASS
+    sync: false
+  - key: GREENLITAPI_SLACK_CHANNEL_ID
+    sync: false
+  - key: GREENLITAPI_SLACK_BOT_TOKEN
+    sync: false
+  - key: GREENLITAPI_STRIPE_API_KEY
+    sync: false
+  - key: GREENLITAPI_TYPEFORM_ONBOARDING_SEND_EMAIL
+    sync: false
+  - key: GREENLITAPI_STRIPE_SIGNING_SECRET_KEY
+    sync: false
+  - key: GREENLITAPI_STRIPE_REPORT_PRICE_ID
+    sync: false
+  - key: GREENLITAPI_SCREENPLAY_IQ_USER_ID
+    sync: false
+  - key: GREENLITAPI_SCREENPLAY_IQ_FALLBACK_TIME_MINUTES
+    sync: false
+  - key: GREENLITAPI_SCREENPLAY_IQ_DEFAULT_ANALYSES
+    sync: false
+  - key: GREENLITAPI_SCREENPLAY_IQ_BASE_URL
+    sync: false
+  - key: GREENLITAPI_SCREENPLAY_IQ_API_KEY
+    sync: false
+  - key: GREENLITAPI_ROLLBAR_ACCESS_TOKEN
+    sync: false
+  - key: GREENLITAPI_POSTHOG_PROJECT_ID
+    sync: false
+  - key: GREENLITAPI_POSTHOG_PERSONAL_API_KEY
+    sync: false
+  - key: GREENLITAPI_POSTHOG_HOST
+    sync: false
+  - key: GREENLITAPI_POSTHOG_API_KEY
+    sync: false
+  - key: GREENLITAPI_PORT
+    sync: false
+  - key: GREENLITAPI_LOG_GROUP
+    sync: false
+  - key: GREENLITAPI_JWT_REFRESH_TOKEN_EXPIRE_MINUTES
+    sync: false
+  - key: GREENLITAPI_JWT_REFRESH_SECRET_KEY
+    sync: false
+  - key: GREENLITAPI_JWT_MAGIC_SECRET_KEY
+    sync: false
+  - key: GREENLITAPI_JWT_MAGIC_EXPIRE_MINUTES
+    sync: false
+  - key: GREENLITAPI_JWT_ACCESS_TOKEN_EXPIRE_MINUTES
+    sync: false
+  - key: GREENLITAPI_JWT_ACCESS_SECRET_KEY
+    sync: false
+  - key: GREENLITAPI_HOST
+    sync: false
+  - key: GREENLITAPI_ENVIRONMENT
+    sync: false
+  - key: GREENLITAPI_DB_USER
+    sync: false
+  - key: GREENLITAPI_DB_PORT
+    sync: false
+  - key: GREENLITAPI_DB_HOST
+    sync: false
+  - key: GREENLITAPI_DB_BASE
+    sync: false
+  - key: GREENLITAPI_AWS_REGION_NAME
+    sync: false
+  - key: GREENLITAPI_AWS_BUCKET_NAME
+    sync: false
+  - key: GREENLITAPI_AWS_ACCESS_KEY_ID
+    sync: false
+  region: ohio
+  buildCommand: poetry install; poetry run alembic upgrade head
+  startCommand: poetry run python -m greenlitapi
+  autoDeploy: false
+version: "1"
+
+# Exported from Render on 2025-04-03T22:22:42Z
+# greenlit-pg-dev-copy
+databases:
+- name: greenlit-pg-dev-copy
+  databaseName: greenlit_iter
+  user: greenlit
+  region: ohio
+  ipAllowList:
+  - source: 136.52.127.20/32
+    description: Pallavi
+  - source: 173.3.40.148/32
+    description: Ian home
+  - source: 108.30.215.8/32
+    description: Ian - Squire office
+  - source: 185.85.243.65/32
+    description: Bhargav - Squire office
+  - source: 171.61.154.176/32
+    description: Deepjyoti
+  - source: 98.109.136.100/32
+    description: Yash Thakor (engineers@getgreenlit.xyz)
+  - source: 100.16.183.194/32
+    description: Boubacar
+  - source: 96.225.84.54/32
+    description: Alvin
+  - source: 24.185.6.173/32
+    description: Bhargav Tarpara (bhargav@getgreenlit.xyz)
+  - source: 71.167.52.38/32
+    description: squire bt
+  - source: 23.21.189.110/32
+    description: MindsDB
+  - source: 44.223.158.176/32
+    description: MindsDB
+  postgresMajorVersion: "13"
+version: "1"
+
+# Exported from Render on 2025-04-03T22:24:57Z
+# greenlit-pg-prod
+
+- name: greenlit-pg-prod
+  databaseName: greenlit_2i4i
+  user: greenlit
+  region: ohio
+  ipAllowList:
+  - source: 173.3.40.148/32
+    description: ian
+  - source: 24.185.6.173/32
+    description: bt
+  postgresMajorVersion: "13"
+version: "1"
