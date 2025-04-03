@@ -1,6 +1,5 @@
 # Exported from Render on 2025-04-03T22:07:06Z
 # greenlit-web-dev
-
 services:
 - type: web
   name: greenlit-web-dev
@@ -73,9 +72,10 @@ services:
     generation: manual
 version: "1"
 
+---
 # Exported from Render on 2025-04-03T22:20:58Z
 # greenlit-api-dev
-
+services:
 - type: pserv
   name: greenlit-api-dev
   runtime: python
@@ -171,9 +171,10 @@ version: "1"
   startCommand: poetry run python -m greenlitapi
 version: "1"
 
+---
 # Exported from Render on 2025-04-03T22:23:32Z
 # greenlit-web-prod
-
+services:
 - type: web
   name: greenlit-web-prod
   runtime: node
@@ -246,8 +247,10 @@ version: "1"
   autoDeploy: false
 version: "1"
 
+---
 # Exported from Render on 2025-04-03T22:24:00Z
 # greenlit-api-prod
+services:
 - type: pserv
   name: greenlit-api-prod
   runtime: python
@@ -340,6 +343,7 @@ version: "1"
   autoDeploy: false
 version: "1"
 
+---
 # Exported from Render on 2025-04-03T22:22:42Z
 # greenlit-pg-dev-copy
 databases:
@@ -375,9 +379,10 @@ databases:
   postgresMajorVersion: "13"
 version: "1"
 
+---
 # Exported from Render on 2025-04-03T22:24:57Z
 # greenlit-pg-prod
-
+databases:
 - name: greenlit-pg-prod
   databaseName: greenlit_2i4i
   user: greenlit
